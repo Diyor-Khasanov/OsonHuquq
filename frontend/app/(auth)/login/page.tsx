@@ -1,14 +1,15 @@
 "use client";
 
 import { useState } from "react";
+import { Eye, EyeOff, Lock, Mail } from "lucide-react";
 import { login } from "@/app/services/auth.service";
 import { saveToken } from "@/app/lib/auth";
-import Button from "@/app/components/ui/Button";
-import Input from "@/app/components/common/Input";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const submit = async () => {
     try {
@@ -17,16 +18,120 @@ export default function LoginPage() {
       window.location.href = "/dashboard";
     } catch (err) {
       alert(`Login error ${err}`);
+    } finally {
+      setIsLoading(false);
     }
   };
 
   return (
-    <div className="flex h-screen items-center justify-center">
-      <div className="bg-white p-6 rounded w-80 space-y-4">
-        <h1 className="text-xl font-bold">Login</h1>
-        <Input placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
-        <Input placeholder="Password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-        <Button onClick={submit}>Login</Button>
+    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-blue-50 via-white to-blue-50 px-4">
+      <div className="w-full max-w-md">
+        <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
+          <div className="bg-gradient-to-r from-blue-600 to-blue-700 px-8 py-10 text-center">
+            <div className="mx-auto w-16 h-16 bg-white rounded-full flex items-center justify-center mb-4">
+              <Lock className="w-8 h-8 text-blue-600" />
+            </div>
+            <h1 className="text-3xl font-bold text-white mb-2">Welcome Back</h1>
+            <p className="text-blue-100">Sign in to continue to your account</p>
+          </div>
+          <div className="px-8 py-10 space-y-6">
+            <div className="space-y-2">
+              <label className="text-sm font-semibold text-gray-700 block">
+                Email Address
+              </label>
+              <div className="relative">
+                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                <input
+                  type="email"
+                  placeholder="you@example.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="w-full pl-11 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all duration-200 text-gray-900 placeholder-gray-400"
+                />
+              </div>
+            </div>
+
+            <div className="space-y-2">
+              <label className="text-sm font-semibold text-gray-700 block">
+                Password
+              </label>
+              <div className="relative">
+                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                <input
+                  type={showPassword ? "text" : "password"}
+                  placeholder="Enter your password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="w-full pl-11 pr-12 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all duration-200 text-gray-900 placeholder-gray-400"
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors"
+                >
+                  {showPassword ? (
+                    <EyeOff className="w-5 h-5" />
+                  ) : (
+                    <Eye className="w-5 h-5" />
+                  )}
+                </button>
+              </div>
+            </div>
+
+            <div className="flex items-center justify-between text-sm">
+              <label className="flex items-center cursor-pointer group">
+                <input
+                  type="checkbox"
+                  className="w-4 h-4 rounded border-gray-300 text-blue-600 focus:ring-2 focus:ring-blue-500"
+                />
+                <span className="ml-2 text-gray-600 group-hover:text-gray-900">
+                  Remember me
+                </span>
+              </label>
+              <a
+                href="#"
+                className="text-blue-600 hover:text-blue-700 font-semibold"
+              >
+                Forgot password?
+              </a>
+            </div>
+
+            <button
+              onClick={submit}
+              disabled={isLoading}
+              className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold py-3 rounded-lg transition-all duration-200 shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+            >
+              {isLoading ? (
+                <>
+                  <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
+                  Signing in...
+                </>
+              ) : (
+                "Sign In"
+              )}
+            </button>
+          </div>
+
+          <div className="px-8 py-6 bg-gray-50 border-t border-gray-100 text-center">
+            <a
+              href="/register"
+              className="text-blue-600 hover:text-blue-700 font-semibold"
+            >
+              Sign Up
+            </a>
+          </div>
+        </div>
+
+        <p className="text-center text-sm text-gray-500 mt-6">
+          By signing in, you agree to our{" "}
+          <a href="#" className="text-blue-600 hover:underline">
+            Terms
+          </a>{" "}
+          and{" "}
+          <a href="#" className="text-blue-600 hover:underline">
+            Privacy Policy
+          </a>
+        </p>
       </div>
     </div>
   );

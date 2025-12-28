@@ -1,3 +1,5 @@
+import "./globals.css";
+
 export const metadata = {
   title: "OsonHuquq AI",
   description: "AI Hujjat + Oddiy Tilga Tarjima Platformasi",
