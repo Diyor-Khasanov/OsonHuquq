@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Eye, EyeOff, Lock, Mail } from "lucide-react";
 import { login } from "@/app/services/auth.service";
 import { saveToken } from "@/app/lib/auth";
+import { ToastContainer, toast } from 'react-toastify';
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -17,13 +18,15 @@ export default function LoginPage() {
       saveToken(res.data.token);
       window.location.href = "/dashboard";
     } catch (err) {
-      alert(`Login error ${err}`);
+      toast.error(`Login error ${err}`);
     } finally {
       setIsLoading(false);
     }
   };
 
   return (
+    <>
+    <ToastContainer />
     <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-blue-50 via-white to-blue-50 px-4">
       <div className="w-full max-w-md">
         <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
@@ -134,5 +137,6 @@ export default function LoginPage() {
         </p>
       </div>
     </div>
+    </>
   );
 }

@@ -1,4 +1,3 @@
-// app/dashboard/page.tsx
 import { Metadata } from "next";
 import { FileText, ShieldAlert, Languages, Library } from "lucide-react";
 import Link from "next/link";

@@ -11,6 +11,7 @@ import {
   Library,
   Menu,
   X,
+  ArrowLeftFromLine,
 } from "lucide-react";
 import { logout } from "@/app/lib/auth";
 
@@ -36,7 +37,7 @@ export default function DashboardLayout({
             onClick={() => setOpen(!open)}
             className="p-2 rounded-md hover:bg-gray-100"
           >
-            {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {open ? <ArrowLeftFromLine className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
 
