@@ -1,32 +1,26 @@
 import { Request, Response } from "express";
-import { generateDocument, simplifyDocument, checkRisk } from "./ai.service";
+import { generateAI } from "./ai.service";
 
-export const aiGenerate = async (req: Request, res: Response) => {
-  try {
-    const { documentType, answers } = req.body;
-    const content = await generateDocument(documentType, answers);
-    res.json({ content });
-  } catch (err) {
-    res.status(500).json({ message: "AI generation failed", error: err });
-  }
+export const generate = async (req: Request, res: Response) => {
+  const { prompt } = req.body;
+  const result = await generateAI(
+    `Generate a legal document:\n${prompt}`
+  );
+  res.json({ result });
 };
 
-export const aiSimplify = async (req: Request, res: Response) => {
-  try {
-    const { text } = req.body;
-    const simplified = await simplifyDocument(text);
-    res.json({ simplified });
-  } catch (err) {
-    res.status(500).json({ message: "Simplify failed", error: err });
-  }
+export const simplify = async (req: Request, res: Response) => {
+  const { text } = req.body;
+  const result = await generateAI(
+    `Simplify this legal text into plain language:\n${text}`
+  );
+  res.json({ result });
 };
 
-export const aiRiskCheck = async (req: Request, res: Response) => {
-  try {
-    const { text } = req.body;
-    const risks = await checkRisk(text);
-    res.json({ risks });
-  } catch (err) {
-    res.status(500).json({ message: "Risk check failed", error: err });
-  }
+export const risk = async (req: Request, res: Response) => {
+  const { text } = req.body;
+  const result = await generateAI(
+    `Analyze this legal document and list possible risks:\n${text}`
+  );
+  res.json({ result });
 };

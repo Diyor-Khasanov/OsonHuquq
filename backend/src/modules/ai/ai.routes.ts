@@ -1,11 +1,10 @@
 import { Router } from "express";
-import { aiGenerate, aiSimplify, aiRiskCheck } from "./ai.controller";
-import { authMiddleware } from "../../middlewares/auth.middleware";
+import { generate, simplify, risk } from "./ai.controller";
 
 const router = Router();
 
-router.post("/generate", authMiddleware, aiGenerate);
-router.post("/simplify", authMiddleware, aiSimplify);
-router.post("/risk", authMiddleware, aiRiskCheck);
+router.post("/generate", generate);
+router.post("/simplify", simplify);
+router.post("/risk", risk);
 
 export default router;

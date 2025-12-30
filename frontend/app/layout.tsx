@@ -7,7 +7,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="w-screen min-h-screen overflow-x-hidden">
+      <body className="w-screen min-h-screen overflow-x-hidden" cz-shortcut-listen="true">
         {children}
       </body>
     </html>

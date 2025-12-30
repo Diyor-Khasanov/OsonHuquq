@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { LayoutDashboard, FileText, LogOut } from "lucide-react";
+import { FileText, LogOut, Home } from "lucide-react";
 import { logout } from "@/app/lib/auth";
 
 export default function DashboardLayout({
@@ -22,7 +22,7 @@ export default function DashboardLayout({
             href="/dashboard"
             className="flex items-center justify-center px-6 py-4 rounded-xl hover:bg-indigo-50"
           >
-            <LayoutDashboard className="w-5 h-5 mr-2" />
+            <Home className="w-5 h-5 mr-2" />
             Dashboard
           </Link>
           <Link

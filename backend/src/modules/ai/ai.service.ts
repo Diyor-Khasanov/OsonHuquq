@@ -1,40 +1,20 @@
-import OpenAI from "openai";
-import { generateDocumentPrompt, simplifyDocumentPrompt, riskCheckPrompt } from "./prompts";
+import { openai } from "../../config/openai";
 
-const client = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY
-});
-
-export const generateDocument = async (type: string, answers: any) => {
-  const prompt = generateDocumentPrompt(type, answers);
-  const response = await client.chat.completions.create({
-    model: "gpt-4o-mini",
-    messages: [{ role: "user", content: prompt }],
-    temperature: 0.2
+export async function generateAI(prompt: string) {
+  const response = await openai.chat.completions.create({
+    model: "gpt-5-nano",
+    messages: [
+      {
+        role: "system",
+        content: "You are a professional legal assistant.",
+      },
+      {
+        role: "user",
+        content: prompt,
+      },
+    ],
+    temperature: 0.4,
   });
-  return response.choices[0].message?.content || "";
-};
 
-export const simplifyDocument = async (text: string) => {
-  const prompt = simplifyDocumentPrompt(text);
-  const response = await client.chat.completions.create({
-    model: "gpt-4o-mini",
-    messages: [{ role: "user", content: prompt }],
-    temperature: 0.2
-  });
-  return response.choices[0].message?.content || "";
-};
-
-export const checkRisk = async (text: string) => {
-  const prompt = riskCheckPrompt(text);
-  const response = await client.chat.completions.create({
-    model: "gpt-4o-mini",
-    messages: [{ role: "user", content: prompt }],
-    temperature: 0
-  });
-  try {
-    return JSON.parse(response.choices[0].message?.content || "[]");
-  } catch {
-    return [];
-  }
-};
+  return response.choices[0].message.content;
+}
