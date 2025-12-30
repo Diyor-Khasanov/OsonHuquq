@@ -1,7 +1,11 @@
-"use client";
-
-import { FileText, ShieldAlert, Languages, Library, MessageSquare } from "lucide-react";
+// app/dashboard/page.tsx
+import { Metadata } from "next";
+import { FileText, ShieldAlert, Languages, Library } from "lucide-react";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Asosiy | OsonHuquq",
+};
 
 export default function DashboardPage() {
   return (
@@ -54,9 +58,7 @@ export default function DashboardPage() {
       {/* ACTIVITY */}
       <div className="grid grid-cols-12 gap-6">
         <div className="col-span-12 xl:col-span-8 bg-white rounded-3xl p-8 shadow-sm">
-          <h2 className="text-xl font-semibold mb-4">
-            So‘nggi faoliyat
-          </h2>
+          <h2 className="text-xl font-semibold mb-4">So‘nggi faoliyat</h2>
 
           <div className="space-y-4">
             {[
@@ -76,9 +78,7 @@ export default function DashboardPage() {
         </div>
 
         <div className="col-span-12 xl:col-span-4 bg-gradient-to-br from-indigo-600 to-blue-600 rounded-3xl p-8 text-white">
-          <h2 className="text-xl font-semibold mb-3">
-            Premium imkoniyatlar
-          </h2>
+          <h2 className="text-xl font-semibold mb-3">Premium imkoniyatlar</h2>
           <p className="opacity-90 mb-6">
             Cheksiz hujjatlar, to‘liq risk tahlili va eksport imkoniyatlari
           </p>

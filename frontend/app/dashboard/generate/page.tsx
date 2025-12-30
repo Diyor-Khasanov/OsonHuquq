@@ -20,7 +20,7 @@ export default function GeneratePage() {
     <div className="w-full grid grid-cols-1 xl:grid-cols-2 gap-10">
       <div className="bg-white rounded-3xl shadow p-8">
         <h2 className="text-2xl font-bold mb-6">
-          Describe your legal task
+          Yuridik Hujjat yoki Shartnoma yarating
         </h2>
 
         <textarea
@@ -36,7 +36,7 @@ export default function GeneratePage() {
       </div>
 
       <div className="bg-white rounded-3xl shadow p-8">
-        <h2 className="text-2xl font-bold mb-6">AI Result</h2>
+        <h2 className="text-2xl font-bold mb-6">AI Javobi</h2>
 
         {result ? (
           <pre className="whitespace-pre-wrap text-sm">
@@ -44,7 +44,7 @@ export default function GeneratePage() {
           </pre>
         ) : (
           <p className="text-slate-400">
-            AI response will appear here
+            AI javobi shu yerda ko`rinadi
           </p>
         )}
       </div>
