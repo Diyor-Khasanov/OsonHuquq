@@ -7,6 +7,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <title>Oson Huquq</title>
+      </head>
       <body className="w-screen min-h-screen overflow-x-hidden" cz-shortcut-listen="true">
         {children}
       </body>
