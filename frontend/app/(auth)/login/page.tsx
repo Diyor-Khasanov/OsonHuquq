@@ -36,17 +36,17 @@ export default function LoginPage() {
         theme="light"
         transition={Zoom}
       />
-      <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-blue-50 via-white to-blue-50 px-4">
+      <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-slate-50 via-white to-slate-50 px-4">
         <div className="w-full max-w-md">
           <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
-            <div className="bg-gradient-to-r from-blue-600 to-blue-700 px-8 py-10 text-center">
+            <div className="bg-gradient-to-r bg-slate-800 px-8 py-10 text-center">
               <div className="mx-auto w-16 h-16 bg-white rounded-full flex items-center justify-center mb-4">
-                <Lock className="w-8 h-8 text-blue-600" />
+                <img className="rounded-full" src="https://i.pinimg.com/1200x/f0/c3/fd/f0c3fd7456121509dff26f996df6826d.jpg" alt="img" />
               </div>
               <h1 className="text-3xl font-bold text-white mb-2">
                 Welcome Back
               </h1>
-              <p className="text-blue-100">
+              <p className="text-slate-100">
                 Sign in to continue to your account
               </p>
             </div>
@@ -62,7 +62,7 @@ export default function LoginPage() {
                     placeholder="you@example.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full pl-11 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all duration-200 text-gray-900 placeholder-gray-400"
+                    className="w-full pl-11 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-slate-800 focus:border-transparent outline-none transition-all duration-200 text-gray-900 placeholder-gray-400"
                   />
                 </div>
               </div>
@@ -78,7 +78,7 @@ export default function LoginPage() {
                     placeholder="Enter your password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="w-full pl-11 pr-12 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all duration-200 text-gray-900 placeholder-gray-400"
+                    className="w-full pl-11 pr-12 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-slate-800 focus:border-transparent outline-none transition-all duration-200 text-gray-900 placeholder-gray-400"
                   />
                   <button
                     type="button"
@@ -98,7 +98,7 @@ export default function LoginPage() {
                 <label className="flex items-center cursor-pointer group">
                   <input
                     type="checkbox"
-                    className="w-4 h-4 rounded border-gray-300 text-blue-600 focus:ring-2 focus:ring-blue-500"
+                    className="w-4 h-4 rounded border-gray-300 text-slate-800 focus:ring-2 focus:ring-slate-800"
                   />
                   <span className="ml-2 text-gray-600 group-hover:text-gray-900">
                     Remember me
@@ -106,7 +106,7 @@ export default function LoginPage() {
                 </label>
                 <a
                   href="#"
-                  className="text-blue-600 hover:text-blue-700 font-semibold"
+                  className="text-slate-800 hover:text-slate-900 font-semibold"
                 >
                   Forgot password?
                 </a>
@@ -115,7 +115,7 @@ export default function LoginPage() {
               <button
                 onClick={submit}
                 disabled={isLoading}
-                className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold py-3 rounded-lg transition-all duration-200 shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+                className="w-full bg-gradient-to-r bg-slate-800 hover:bg-slate-900 text-white font-semibold py-3 rounded-lg transition-all duration-200 shadow-lg shadow-slate-800/30 hover:shadow-slate-800/50 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
               >
                 {isLoading ? (
                   <>
@@ -131,7 +131,7 @@ export default function LoginPage() {
             <div className="px-8 py-6 bg-gray-50 border-t border-gray-100 text-center">
               <a
                 href="/register"
-                className="text-blue-600 hover:text-blue-700 font-semibold"
+                className="text-slate-800 hover:text-slate-900 font-semibold"
               >
                 Sign Up
               </a>
@@ -140,11 +140,11 @@ export default function LoginPage() {
 
           <p className="text-center text-sm text-gray-500 mt-6">
             By signing in, you agree to our{" "}
-            <a href="#" className="text-blue-600 hover:underline">
+            <a href="#" className="text-slate-800 hover:underline underline">
               Terms
             </a>{" "}
             and{" "}
-            <a href="#" className="text-blue-600 hover:underline">
+            <a href="#" className="text-slate-800 hover:underline underline">
               Privacy Policy
             </a>
           </p>

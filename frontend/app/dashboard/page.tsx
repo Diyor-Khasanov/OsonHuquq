@@ -26,7 +26,7 @@ export default function DashboardPage() {
           title="AI Document Generator"
           desc="Ariza, da’vo, shartnoma va boshqa hujjatlarni AI orqali yaratish"
           href="/dashboard/generate"
-          color="from-blue-600 to-indigo-600"
+          color="from-cyan-600 to-sky-600"
         />
 
         <FeatureCard
@@ -76,13 +76,13 @@ export default function DashboardPage() {
           </div>
         </div>
 
-        <div className="col-span-12 xl:col-span-4 bg-gradient-to-br from-indigo-600 to-blue-600 rounded-3xl p-8 text-white">
+        <div className="col-span-12 xl:col-span-4 bg-gradient-to-br bg-slate-800 rounded-3xl p-8 text-white">
           <h2 className="text-xl font-semibold mb-3">Premium imkoniyatlar</h2>
           <p className="opacity-90 mb-6">
             Cheksiz hujjatlar, to‘liq risk tahlili va eksport imkoniyatlari
           </p>
 
-          <button className="w-full bg-white text-indigo-600 font-semibold py-3 rounded-xl hover:scale-[1.02] transition">
+          <button className="w-full bg-white text-slate-800 font-semibold py-3 rounded-xl hover:scale-[1.02] transition">
             Premiumga o‘tish
           </button>
         </div>

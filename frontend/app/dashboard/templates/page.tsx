@@ -90,7 +90,7 @@ export default function TemplatesPage() {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search templates..."
-            className="w-full pl-11 pr-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full pl-11 pr-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-slate-800"
           />
         </div>
 
@@ -103,7 +103,7 @@ export default function TemplatesPage() {
               className={clsx(
                 "px-4 py-2 rounded-xl text-sm font-medium border transition",
                 active === c
-                  ? "bg-blue-600 text-white border-blue-600"
+                  ? "bg-slate-800 text-white border-slate-800"
                   : "bg-white text-slate-600 border-slate-200 hover:bg-slate-100"
               )}
             >
@@ -133,8 +133,8 @@ export default function TemplatesPage() {
               </span>
             )}
 
-            <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-4">
-              <FileText className="text-blue-600" />
+            <div className="w-12 h-12 bg-slate-50 rounded-xl flex items-center justify-center mb-4">
+              <FileText className="text-slate-800" />
             </div>
 
             <h3 className="font-semibold text-slate-900 mb-2">{t.title}</h3>
@@ -142,7 +142,7 @@ export default function TemplatesPage() {
 
             <div className="flex items-center justify-between text-sm">
               <span className="text-slate-400">{t.uses} uses</span>
-              <button className="text-blue-600 font-medium hover:underline">
+              <button className="text-slate-800 font-medium hover:underline">
                 Preview
               </button>
             </div>

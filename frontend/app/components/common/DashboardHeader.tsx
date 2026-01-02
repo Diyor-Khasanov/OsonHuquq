@@ -21,8 +21,15 @@ export default function DashboardHeader({ open, setOpen }: Props) {
             <Menu className="w-6 h-6" />
           )}
         </button>
-        <span className="text-3xl text-slate-900 font-bold">OsonHuquq</span>
-
+        <span className="text-3xl text-slate-900 font-bold flex items-center gap-2">
+          <img
+            className="rounded-full"
+            src="https://i.pinimg.com/1200x/f0/c3/fd/f0c3fd7456121509dff26f996df6826d.jpg"
+            alt="img"
+            style={{ width: "40px", height: "40px" }}
+          />
+          Oson Huquq
+        </span>
       </div>
 
       <div className="flex items-center gap-6">
@@ -34,7 +41,7 @@ export default function DashboardHeader({ open, setOpen }: Props) {
 
         {/* Profile */}
         <div className="flex items-center gap-3 cursor-pointer">
-          <div className="w-9 h-9 rounded-full bg-indigo-600 text-white flex items-center justify-center font-semibold">
+          <div className="w-9 h-9 rounded-full bg-slate-800 text-white flex items-center justify-center font-semibold">
             U
           </div>
           <div className="hidden md:block leading-tight">

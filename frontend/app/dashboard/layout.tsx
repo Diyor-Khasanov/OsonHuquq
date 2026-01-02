@@ -11,7 +11,7 @@ import {
   Home,
   Languages,
   ShieldAlert,
-  Library,
+  Layers,
 } from "lucide-react";
 import { logout } from "@/app/lib/auth";
 
@@ -62,7 +62,7 @@ export default function DashboardLayout({
               open={open}
             />
             <SidebarLink
-              icon={<Library />}
+              icon={<Layers />}
               label="Shablon Kutubxonasi"
               href="/dashboard/templates"
               open={open}
@@ -73,7 +73,7 @@ export default function DashboardLayout({
           <div className="p-4 shrink-0">
             <button
               onClick={logout}
-              className={`w-full flex items-center px-4 py-3 rounded-xl bg-red-100 text-red-600 ${
+              className={`w-full flex items-center px-4 py-3 rounded-xl bg-red-100 text-red-600 hover:bg-red-200 hover:text-red-700 transition-all duration-200 ${
                 open ? "justify-start" : "justify-center"
               }`}
             >
@@ -117,8 +117,8 @@ export function SidebarLink({
       className={`flex items-center px-4 py-3 rounded-xl transition-all duration-200
         ${
           isActive
-            ? "bg-indigo-600 text-white shadow-md"
-            : "hover:bg-indigo-50 text-gray-700"
+            ? "bg-slate-800 text-white shadow-md"
+            : "hover:bg-slate-100 text-gray-700"
         }
         ${open ? "justify-start" : "justify-center"}
       `}

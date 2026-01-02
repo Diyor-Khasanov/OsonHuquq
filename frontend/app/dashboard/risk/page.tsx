@@ -48,7 +48,7 @@ export default function GeneratePage() {
           <h2 className="text-2xl font-bold mb-6">Risk Detector</h2>
 
           <textarea
-            className="w-full min-h-55 p-6 rounded-2xl border-2 border-indigo-400"
+            className="w-full min-h-55 p-6 rounded-2xl border-2 border-slate-400"
             placeholder="Shartnomani kiriting"
             value={text}
             onChange={(e) => setText(e.target.value)}
@@ -56,7 +56,7 @@ export default function GeneratePage() {
 
           <Button
             onClick={submit}
-            className="mt-6 w-full bg-blue-600 p-2 font-semibold text-white rounded-2xl cursor-pointer"
+            className="mt-6 w-full bg-slate-800 p-2 font-semibold text-white rounded-2xl cursor-pointer"
           >
             {loading ? "Generating..." : "Generate"}
           </Button>
