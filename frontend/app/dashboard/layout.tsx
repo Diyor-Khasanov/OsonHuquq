@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import DashboardHeader from "@/app/components/common/DashboardHeader";
+import { usePathname } from "next/navigation";
 
 import {
   FileText,
@@ -90,7 +91,6 @@ export default function DashboardLayout({
     </div>
   );
 }
-
 interface SidebarLinkProps {
   icon: React.ReactNode;
   label: string;
@@ -98,16 +98,36 @@ interface SidebarLinkProps {
   open: boolean;
 }
 
-function SidebarLink({ icon, label, href, open }: SidebarLinkProps) {
+export function SidebarLink({
+  icon,
+  label,
+  href,
+  open,
+}: SidebarLinkProps) {
+  const pathname = usePathname();
+
+  const isActive =
+    href === "/dashboard"
+      ? pathname === "/dashboard"
+      : pathname.startsWith(href);
+
   return (
     <Link
       href={href}
-      className={`flex items-center px-4 py-3 rounded-xl hover:bg-indigo-50 transition-all ${
-        open ? "justify-start" : "justify-center"
-      }`}
+      className={`flex items-center px-4 py-3 rounded-xl transition-all duration-200
+        ${
+          isActive
+            ? "bg-indigo-600 text-white shadow-md"
+            : "hover:bg-indigo-50 text-gray-700"
+        }
+        ${open ? "justify-start" : "justify-center"}
+      `}
     >
-      <div className="w-6 h-6 flex items-center justify-center">{icon}</div>
-      {open && <span className="ml-3">{label}</span>}
+      <div className="w-6 h-6 flex items-center justify-center">
+        {icon}
+      </div>
+
+      {open && <span className="ml-3 font-medium">{label}</span>}
     </Link>
   );
 }
