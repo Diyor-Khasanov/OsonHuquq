@@ -1,6 +1,7 @@
 "use client";
 
 import { Menu, ArrowLeftFromLine, Bell } from "lucide-react";
+import Link from "next/link";
 
 interface Props {
   open: boolean;
@@ -34,13 +35,15 @@ export default function DashboardHeader({ open, setOpen }: Props) {
 
       <div className="flex items-center gap-6">
         {/* Notifications */}
-        <button className="relative p-2 rounded-full hover:bg-slate-100">
-          <Bell className="w-5 h-5 text-slate-600" />
-          <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full" />
-        </button>
+        <Link href="/notifications">
+          <button className="relative p-2 rounded-full hover:bg-slate-100">
+            <Bell className="w-5 h-5 text-slate-600" />
+            <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full" />
+          </button>
+        </Link>
 
         {/* Profile */}
-        <div className="flex items-center gap-3 cursor-pointer">
+        <div className="flex items-center gap-3">
           <div className="w-9 h-9 rounded-full bg-slate-800 text-white flex items-center justify-center font-semibold">
             U
           </div>
@@ -49,6 +52,7 @@ export default function DashboardHeader({ open, setOpen }: Props) {
             <p className="text-xs text-slate-500">user@mail.com</p>
           </div>
         </div>
+
       </div>
     </header>
   );
